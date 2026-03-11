@@ -2,11 +2,18 @@ public class Order {
 
     public void placeOrder(Cart cart){
 
-        System.out.println("\nOrder Placed Successfully!");
+        if(cart.items.size()==0){
+            System.out.println("Cart is empty!");
+            return;
+        }
 
-        cart.showCart();
+        double total = cart.getTotal();
 
-        System.out.println("Total Amount: Rs." + cart.getTotal());
+        Payment payment = new Payment();
+
+        payment.processPayment(total);
+
+        System.out.println("Order placed successfully!");
 
     }
 
