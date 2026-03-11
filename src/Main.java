@@ -80,3 +80,17 @@ public class Main {
     }
 
 }
+System.out.println("Search product name:");
+String name = sc.next();
+
+if(p1.name.equalsIgnoreCase(name))
+    p1.display();
+
+else if(p2.name.equalsIgnoreCase(name))
+    p2.display();
+
+else if(p3.name.equalsIgnoreCase(name))
+    p3.display();
+
+else
+    System.out.println("Product not found");
