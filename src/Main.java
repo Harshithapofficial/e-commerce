@@ -14,26 +14,31 @@ public class Main {
 
         while(true){
 
-            System.out.println("\nWelcome to TechCart E-Commerce");
+            System.out.println("\n===== TechCart E-Commerce =====");
 
             System.out.println("1. View Products");
-            System.out.println("2. Add to Cart");
+            System.out.println("2. Add Product to Cart");
             System.out.println("3. View Cart");
-            System.out.println("4. Exit");
+            System.out.println("4. Place Order");
+            System.out.println("5. Exit");
+
+            System.out.print("Enter choice: ");
 
             int choice = sc.nextInt();
 
             switch(choice){
 
                 case 1:
-                    System.out.println("Available Products:");
+
+                    System.out.println("\nAvailable Products:");
                     p1.display();
                     p2.display();
                     p3.display();
                     break;
 
                 case 2:
-                    System.out.println("Enter product id to add:");
+
+                    System.out.println("Enter Product ID:");
                     int id = sc.nextInt();
 
                     if(id==1)
@@ -43,24 +48,35 @@ public class Main {
                     else if(id==3)
                         cart.addProduct(p3);
                     else
-                        System.out.println("Invalid product");
+                        System.out.println("Invalid Product ID");
 
                     break;
 
                 case 3:
-                    System.out.println("Items in Cart:");
+
+                    System.out.println("\nItems in Cart:");
                     cart.showCart();
                     break;
 
                 case 4:
-                    System.out.println("Thank you for visiting TechCart");
+
+                    Order order = new Order();
+                    order.placeOrder(cart);
+
+                    break;
+
+                case 5:
+
+                    System.out.println("Thank you for shopping with TechCart!");
                     return;
 
                 default:
-                    System.out.println("Invalid option");
+                    System.out.println("Invalid choice");
+
             }
 
         }
 
     }
+
 }
